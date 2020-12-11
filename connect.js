@@ -9,7 +9,7 @@ const conn = mysql.createConnection({
     database:'rest_api'
 });
 
-conn.connect((er)=>{
+conn.connect((err)=>{
     if(err) throw err;
     console.log("terkoneksi");
 });
