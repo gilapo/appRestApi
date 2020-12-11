@@ -46,3 +46,33 @@ exports.addNewData = function(req, res){
     });
 
 };
+
+exports.editData = function(req, res){
+    let id = req.body.id;
+    let nim = req.body.nim;
+    let nama = req.body.nama;
+    let jurusan = req.body.jurusan;
+
+    connection.query("UPDATE mahasiswa SET nim=?, nama=?, jurusan=? WHERE id=?", [nim,nama,jurusan,id],function(error, rows, fields){
+        if (error) {
+            console.log(error);
+        }
+        else{
+            response.ok('data has been edited', res)
+        }
+    });
+
+};
+
+
+exports.deleteDataId = function (req, res) {
+    let id = req.body.id;
+    connection.query("DELETE FROM mahasiswa WHERE id = ?", [id],function(error, rows, fields){
+        if (error) {
+            console.log(error);
+        }
+        else{
+            response.ok("data has been deleted", res)
+        }
+    });
+};

@@ -14,4 +14,10 @@ module.exports = function (app) {
 
     //add new data
     app.route('/tambah').post(json.addNewData);
+
+    //edit data
+    app.route('/ubah').put(json.editData);
+
+    //delete data
+    app.route('/hapus').delete(json.deleteDataId);
 }
