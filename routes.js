@@ -11,4 +11,7 @@ module.exports = function (app) {
 
     //get all data with id
     app.route('/tampil/:id').get(json.getAllDataId);
+
+    //add new data
+    app.route('/tambah').post(json.addNewData);
 }
